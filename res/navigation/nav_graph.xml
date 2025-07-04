@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.quizzyapp.views.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.quizzyapp.views.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.quizzyapp.views.SignInFragment"
+        android:label="SignInFragment"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.quizzyapp.views.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFragment_to_continentFragment"
+            app:destination="@id/continentFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/continentFragment"
+        android:name="com.example.quizzyapp.views.ContinentFragment"
+        android:label="Select Continent">
+        <action
+            android:id="@+id/action_continentFragment_to_difficultyFragment"
+            app:destination="@id/difficultyFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/difficultyFragment"
+        android:name="com.example.quizzyapp.views.DifficultyFragment"
+        android:label="Select Difficulty">
+        <action
+            android:id="@+id/action_difficultyFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+        <argument
+            android:name="position"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/quizFragment"
+        android:name="com.example.quizzyapp.views.QuizFragment"
+        android:label="fragment_quiz"
+        tools:layout="@layout/fragment_quiz" >
+        <action
+            android:id="@+id/action_quizFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+        <action
+            android:id="@+id/action_quizFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="quizId"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="totalQueCount"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.quizzyapp.views.ResultFragment"
+        android:label="Result"
+        tools:layout="@layout/fragment_result">
+        <action
+            android:id="@+id/action_resultFragment_to_continentFragment"
+            app:destination="@id/continentFragment" />
+        <action
+            android:id="@+id/action_resultFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_resultFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="com.example.quizzyapp.views.LeaderboardFragment"
+        android:label="Leaderboard"
+        tools:layout="@layout/fragment_leaderboard">
+        <action
+            android:id="@+id/action_leaderboardFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_leaderboardFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <!-- New ProfileFragment -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.quizzyapp.views.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile">
+        <action
+            android:id="@+id/action_profileFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_listFragment2"
+            app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
+
+</navigation>
